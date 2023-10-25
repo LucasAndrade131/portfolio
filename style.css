@@ -60,6 +60,7 @@ body * {
 
   margin: 4px auto;
 }
+
 #switch button {
   width: 32px;
   height: 32px;
@@ -72,14 +73,19 @@ body * {
   left: 0;
   right: initial;
   /* top: 0;
-  left: 0; par mudar as posições*/
+  left: 0; para mudar as posições*/
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -169,5 +175,24 @@ só funciona se vc tiver o caminho HTML ==
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />*/
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;  
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
